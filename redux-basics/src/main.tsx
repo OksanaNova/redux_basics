@@ -7,7 +7,7 @@ import "./index.css"
 
 const container = document.getElementById("root")
 
-// 2. ACTION 
+// 2. ACTION - ПРЕДУСМАТРИВАЕМ ВСЕ ВОЗМОЖНЫЕ ДЕЙСТВИЯ ПОЛЬЗОВАТЕЛЯ, ЧТО ОН МОЖЕТ СДЕЛАТЬ
 
 // A
 const addToCart = () => {
@@ -29,6 +29,22 @@ const changeNumber = () => {
     type: "CHANGE_NUMBER"
   }
 }
+
+// 3. REDUCER - ЩПИСАНИЕ КАК НАШИ НАМЕРЕНИЯ СОВЕРШИТЬ ДЕЙСТВИЯ ПОМЕНЯЮТ СОСТОЯНИЕ
+
+const cart = (state = 0, action) => {
+  switch(action.type) {
+    case 'ADD_TO_CART':
+      return state + 1;
+
+    case 'REMOVE_ITEM':
+      return state - 1;
+  }
+}
+
+// DISPATCH - 
+
+
 
 if (container) {
   const root = createRoot(container)
